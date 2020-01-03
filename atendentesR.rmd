@@ -1,0 +1,59 @@
+---
+title: "R Notebook"
+output: html_notebook
+    ---
+Exercicio
+
+Central de atendimento com 6 atendentes
+A probabilidade de algum atendente está atendendo é 0.6
+
+Qual a função que descreve a probabilidade de estarem em atendimento
+
+numero de atendentes ocupados
+x = 0,1,2,3,4,5,6
+
+
+```{r}
+combinatory = function(n,p){
+  return (factorial(n)/(factorial(p)*factorial(n-p)))
+}
+```
+Probabilidade de 0 pessoas estarem atendendo
+a probabilidade de todos NÃO estárem em atendimento é de 0.4 e elevamos ao numero de atendentes
+```{r}
+0.4^6
+```
+
+Probabilidade de apenas 1 dos 6 atendentes estar em atenimento
+
+```{r}
+0.6*6*(0.4^5)
+```
+
+Probabilidade de apenas 2 dos 6 atendentes esta em atendimento
+Agora faremos uso da função ```combinatory``` para encontramos o numero de combinações possiveis de duas pessoas em um grupo de 6. Logo após temos temos a probabilidae de estár atendendo elevada ao numero de atendentes que temos interesse e tudo isso vezes a probabilidade de não estarem atendendo elevado ao numero que não deveria estár atendendo
+
+```{r}
+combinatory(6,2)*(0.6^2)*(0.4^4)
+```
+
+Agora eu quero saber qual a probabilidade de 3 dos 6 atendentes estarem am atendimento. 
+Repetiremos a mesma logica do passo anterior
+```{r}
+combinatory(6,3)*(0.6^3)*(0.4^3)
+```
+
+Novamente Faremos o calculo para 4 dos 6 atendentes
+```{r}
+combinatory(6,4)*(0.6^4)*(0.4^2)
+```
+
+assim como no passo 4 , ja bem logico, repetiremos:
+```{r}
+combinatory(6,5)*(0.6^5)*(0.4^1)
+```
+
+E então finalmente, para 6 atendentes atendendo simultaneamente seguimos a mesma logica do passo 1.
+```{r}
+(0.6^6)
+```
