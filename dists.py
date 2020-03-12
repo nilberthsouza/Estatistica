@@ -2,6 +2,8 @@ from scipy.stats import binom
 from scipy.stats import poisson
 import numpy as np
 
+import matplotlib.pyplot as plt
+
 #Um torno mecanico produz 25% de peças com defeito
 #O lote é 16
 #Queremos saber qual a probabilidade de 4 dentre 16 apresentarem defeito
@@ -28,7 +30,7 @@ sigma = 15
 s = np.random.normal(mu,sigma, 1000)
 abs(mu - np.mean(s))<240
 
-import matplotlib.pyplot as plt
+
 
 count, bins , ignored = plt.hist(s,30,density=True)
 plt.plot(bins, 1/(sigma * np.sqrt(2*np.pi)) * np.exp(- (bins -mu)**2 /(2 * sigma)),linewidth=2,color='r')
